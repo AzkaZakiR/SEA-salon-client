@@ -10,7 +10,7 @@ Currently, two official plugins are available:
 ## Installation
 
 ```sh
-cd salon-app
+cd SEA-salon-client
 npm i
 npm run dev
 ```
