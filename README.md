@@ -14,3 +14,5 @@ cd SEA-salon-client
 npm i
 npm run dev
 ```
+
+Link For Deployment: https://salon-client-mu.vercel.app/
