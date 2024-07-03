@@ -45,11 +45,8 @@ const Login = () => {
         event.preventDefault();
         try {
             const response = await axios.post("http://localhost:3000/api/v1/auth/login", login);
-            // const response = await axios.post("https://airline.azkazk11.my.id/api/v1/auth/login", login);
-            // Check if response contains a token
             console.log(response.data.data.token)
             if (response.data && response.data.data.token) {
-                // Set token in cookies
                 console.log("Masuk setting cookie")
                 cookies.set("token", response.data.token, {
                     path: "/home",
@@ -57,15 +54,12 @@ const Login = () => {
                 });
                 localStorage.setItem("token", response.data.data.token);
 
-                // Update state
                 setIsSuccess(true);
-                setMessage(response.data.message); // Use response.data.message directly
+                setMessage(response.data.message);
                 setErrors({ email: false, password: false });
             } else {
-                // Handle cases where token is not present
                 setIsSuccess(false);
-                setMessage(response.data.message); // Use response.data.message directly
-                // Set errors based on status code or response data
+                setMessage(response.data.message);
                 if (response.status === 401) {
                     setErrors({ email: false, password: true });
                 } else if (response.status === 400) {
@@ -75,7 +69,6 @@ const Login = () => {
                 }
             }
         } catch (err) {
-            // Handle network errors or navigate to error page
             console.error("Login error:", err);
             navigate("/error");
         }
@@ -190,7 +183,7 @@ const Login = () => {
                         transition={{ duration: 0.5, delay: 1.25 }}
                         type="submit"
                         disabled={loading || isSuccess}
-                        className={`w-full text-black bg-[#4a494b] hover:bg-[#e1e0e2]/90 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center ${loading || isSuccess ? "cursor-not-allowed" : ""
+                        className={`w-full text-black bg-[#d7d6d8] hover:bg-[#757475]/90 focus:ring-4 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center ${loading || isSuccess ? "cursor-not-allowed" : ""
                             }`}
                     >
                         {loading ? "Loading..." : "Masuk"}

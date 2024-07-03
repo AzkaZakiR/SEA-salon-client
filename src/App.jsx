@@ -1,6 +1,4 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Count from './Pages/Count';
 import Test from './Pages/Test';
@@ -17,10 +15,10 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path='/count' element={<Count />}></Route>
-          <Route path="/" element={<Test />}></Route>
-          {/* <Route path='/' element=<Home />></Route> */}
           <Route path='/home' element={<Home />}></Route>
+          <Route path='/count' element={<Count />}></Route>
+          <Route path="/" element={<Home />}></Route>
+          {/* <Route path='/' element=<Home />></Route> */}
           <Route path='/hal' element={<Hal />}></Route>
           <Route path='/banner' element={<Banner />}></Route>
           <Route path='/login' element={<Login />}></Route>
